@@ -1,0 +1,283 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+body {
+    background-color: #000115;
+    nav a {
+        .different {
+            color: #b73b4f;
+            font-weight: 900;
+        }
+    }
+}
+
+nav {
+    background-color: #000115;
+}
+
+.nav-item {
+    &:hover {
+        font-weight: normal;
+        color: #fff;
+    }
+    margin-left: 32px;
+}
+
+.jumbotron {
+    margin-top: 107px;
+    h1 {
+        font-size: 72px;
+        font-weight: bold;
+        span {
+            color: #b73b4f;
+        }
+        position: relative;
+        animation-name: text-bounce;
+        animation-duration: 3s;
+    }
+    p {
+        color: C4C4C4;
+        font-family: "Assistant", sans-serif;
+        font-size: 32px;
+        margin: 32px 0 0 0;
+        position: relative;
+        animation-name: text-bounce;
+        animation-duration: 2s;
+    }
+    img {
+        width: 100%;
+    }
+    .laptop {
+        position: relative;
+        animation-name: phone-bounce;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+    .arrow-top {
+        height: 200px;
+        position: relative;
+        animation-name: arrow-bounce;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        img {
+            width: 35px;
+        }
+    }
+    .phone {
+        img {
+            width: 65%;
+        }
+        position: relative;
+        animation-name: phone-bounce;
+        animation-duration: 7s;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes text-bounce {
+    0% {
+        top: -100px;
+    }
+    50% {
+        top: 50px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes arrow-bounce {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: -30px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes phone-bounce {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 30px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+.about-me {
+    margin: 250px auto;
+    max-width: 930px;
+    p {
+        max-width: 852px;
+        background-color: #212239;
+        padding: 68px 48px;
+        color: #c4c4c4;
+        font-size: 16px;
+        margin: auto;
+        border-radius: 20px;
+    }
+    img {
+        width: 110px;
+        margin-bottom: -25px;
+        text-align: right;
+    }
+    .bag {
+        position: relative;
+        animation-name: phone-bounce;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+    position: relative;
+    animation-name: phone-bounce;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+.skills {
+    margin-bottom: 250px;
+    h2 {
+        font-size: 64px;
+        margin-bottom: 20px;
+    }
+    img {
+        width: 100px;
+    }
+    span {
+        color: #b73b4f;
+        font-weight: 600;
+    }
+}
+
+.portofolio {
+    h2 {
+        font-size: 64px;
+        margin-bottom: 50px;
+        span {
+            padding: 0 20px;
+            margin: 0 20px;
+            color: #b73b4f;
+            border: 3px solid #c4c4c4;
+            border-radius: 50%;
+            font-size: 50px;
+        }
+        .different-border {
+            padding: 0 25px;
+        }
+    }
+    img {
+        // max-width: 957px;
+        width: 100%;
+        border-radius: 35px;
+        margin-bottom: 200px;
+    }
+    .port-3 {
+        border-radius: 35px 35px 0 0;
+        margin-bottom: 20px;
+    }
+    .port-32 {
+        border-radius: 0 0 35px 35px;
+        margin-bottom: 350px;
+    }
+}
+
+footer {
+    padding: 80px 0;
+    border-top: 1px solid #212239;
+    .card-body {
+        padding-left: 15px;
+    }
+    p {
+        color: #e6e6e6;
+        letter-spacing: 0.5px;
+    }
+    li {
+        list-style-type: none;
+        margin-bottom: 20px;
+    }
+    .credit {
+        font-size: 14px;
+    }
+}
+
+.btn-danger {
+    background-color: #802637;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 11px;
+}
+
+// responsive breakpoint
+@media (max-width: 700px) {
+    .container {
+        padding: 0 16px;
+    }
+    .jumbotron {
+        h1 {
+            font-size: 55px;
+        }
+        p {
+            font-size: 16px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+        .phone {
+            display: none;
+        }
+    }
+    .skills {
+        h2 {
+            font-size: 30px;
+        }
+        span {
+            font-weight: 400;
+            margin: 0 !important;
+        }
+        col {
+            padding: 50px !important;
+        }
+    }
+    .portofolio {
+        h2 {
+            font-size: 40px;
+        }
+        img,
+        .port-3,
+        .port-32 {
+            border-radius: 8px;
+        }
+    }
+    footer {
+        text-align: center;
+        .avatar {
+            margin-bottom: 20px;
+        }
+        .btn-danger {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        .footer-left {
+            text-align: center !important;
+            ul {
+                padding: 0;
+            }
+            li {
+                display: inline;
+                margin: 20px;
+            }
+        }
+        padding: 50px 0;
+    }
+}
