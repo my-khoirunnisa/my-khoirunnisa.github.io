@@ -26,7 +26,7 @@
 <body>
 
     <!-- Glass Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3" id="home">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
                 Khoirunnisa<span class="different">.</span>
@@ -65,7 +65,7 @@
     <div class="container">
 
         <!-- Hero Section -->
-        <section class="hero-section text-start">
+        <section class="hero-section text-start" id="home">
             <div class="row align-items-center g-5">
                 <div class="col-lg-7">
                     <div class="status-badge mb-3">
@@ -212,7 +212,7 @@
                         <h5 class="fw-bold text-white mb-2" style="font-size: 20px;">IoT, Hardware & Security</h5>
                         <p class="text-muted m-0">
                             Hardware peripheral SDKs (ESC/POS thermal printers via Bluetooth/USB), real-time Firestore
-                            sync, AES-256 database encryption, Android Keystore, and automated GitLab CI/CD with
+                            sync, AES-256 database encryption, and automated GitLab CI/CD with
                             SonarQube.
                         </p>
                     </div>
@@ -755,6 +755,58 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <!-- Active Navbar Link & Scroll Spy Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            // 1. Click Handler: Immediately switch active state and collapse mobile menu
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+
+                        // Collapse mobile navbar if expanded
+                        const navbarCollapse = document.getElementById('navbarNav');
+                        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+                            bsCollapse.hide();
+                        }
+                    }
+                });
+            });
+
+            // 2. Scroll Handler: Dynamically update active link on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -55% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        if (id) {
+                            navLinks.forEach(link => {
+                                if (link.getAttribute('href') === '#' + id) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 
 </html>
